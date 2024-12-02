@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATKICKS MEN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Navbar -->
+     <header class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+             <img src="image/Group_3-removebg-preview.png"  class="logo">
+            </a>
+           
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <a href="men.html">Men</a>
+            <a href="women.html">Women</a>
+            <a href="kids.html">Kids</a>
+        </div>
+        <div class="navbar-right">
+            <i class="icon search-icon" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></i>
+            <i class="icon login-icon" onclick="goToLogin()"><i class="fa-solid fa-user"></i></i>
+            <i class="icon user-profile-icon" onclick="showDashboard()" style="display: none;"><i class="fa-solid fa-circle-user"></i></i> <!-- Profile icon -->
+            <i class="icon cart-icon" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i></i>
+        </div>
+    </header>
+
+    <div class="dashboard-popup" style="display: none;">
+        <h2>Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <section class="terms">
+        <h2 class="terms-text">Terms & Conditions</h2>
+        <p>Welcome to MATKICKS! By accessing our website, you agree to our terms and conditions...
+        <li class="ketentuan">MATKICKS adalah platform marketplace yang memfasilitasi transaksi antara pembeli dan penjual.MATKICKS sendiri bukan merupakan penjual barang.</li>
+        <li class="ketentuan">Dengan menggunakan platform ini, pengguna setuju untuk mematuhi semua hukum yang berlaku, termasuk yang berkaitan dengan keaslian barang, hak kekayaan intelektual, dan hak-hak konsumen.</li> 
+        <li class="ketentuan">MATKICKS berhak untuk mengubah atau memperbarui Syarat dan Ketentuan ini sewaktu-waktu. Penggunaan platform secara berkelanjutan setelah adanya perubahan berarti menyetujui ketentuan yang telah diperbarui.</li>
+      </section>
+      <section class="privacy">
+        <h2 class="terms-text">Privacy Policy</h2>
+        <li class="ketentuan">MATKICKS menghormati privasi pengguna dan menangani semua data pribadi sesuai dengan undang-undang perlindungan data yang berlaku. Silakan lihat Kebijakan Privasi kami untuk detail tentang pengumpulan, penggunaan, dan pembagian data.</li>
+        <li class="ketentuan">Pengguna menyetujui penggunaan data MATKICKS untuk pemrosesan pesanan, pemasaran, dan tujuan analitis.</li>
+      </section>
+      <section class="about-us">
+        <h2 class="terms-text">About Us</h2>
+        <p>MATKICKS didirikan pada tahun 2024 dengan kami menyediakan alas kaki berkualitas tinggi untuk semua. tujuan kami untuk menginspirasi dan memberdayakan kultur kaum muda di berbagai belahan dunia dengan menyulut semangat bersama untuk mengekspresikan diri serta menciptakan pengalaman tak tertandingi di jantung komunitas sneaker global.</p>
+      </section>
+
+    <style>
+    main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.terms-text {
+    
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.terms {
+    padding: 10px;
+    padding-top: 80px;
+}
+
+.privacy {
+    padding: 10px;
+}
+
+.about-us {
+    padding: 10px;
+}
+            
+.footer {
+    padding-top: 30px;
+}
+
+.ketentuan {
+    padding-left: 15px;
+}
+
+ </style>
+    
+
+        <section class="footer" id="footer">
+            <footer>
+                <div class="footer-container">
+                  <div class="footer-logo">
+                    <a href="index.html"><img src="image/logo matkicks.jpg" alt="Logo Toko Sepatu"></a>
+                    <h2 class="nama-toko">MATKICKS</h2>
+                    <h4>Authentic. Guranteed.</h4>
+                  </div>
+                  
+                  <!-- Customer Care -->
+                  <div class="footer-section">
+                    <h3>Customer Care</h3>
+                    <ul>
+                      <li><a href="#">Buying & Selling Guide</a></li>
+                      <li><a href="#">Pengembalian Barang</a></li>
+                      <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                  </div>
+              
+                  <!-- Informasi Toko -->
+                  <div class="footer-section">
+                    <h3>Informasi Toko</h3>
+                    <ul>
+                      <li><a href="#">Tentang Kami</a></li>
+                      <li><a href="#">Lokasi Toko</a></li>
+                    </ul>
+                  </div>
+              
+                  <!-- Payment Methods -->
+                  <div class="footer-section">
+                    <h3>Daftar Payment</h3>
+                    <ul>
+                        <li><a>E-Wallet</a></li>
+                      <li><a>Mastercard</a></li>
+                      <li><a>Bank Transfer</a></li>
+                    </ul>
+                  </div>
+              
+                  <!-- Media Sosial -->
+                  <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <div class="footer-social">
+                      <a href="https://instagram.com/matkicks_"><img src="image/image.png" alt="Instagram"></a>
+                      <a href="https://instagram.com/matkicks_" class="ig-nama">Matkicks</a>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+    </section>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATKICKS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="image/Group_3-removebg-preview.png"  class="logo">
+               </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <a href="men.html">Men</a>
+            <a href="#women">Women</a>
+            <a href="#kids">Kids</a>
+        </div>
+        <div class="navbar-right">
+            <i class="icon search-icon" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></i>
+            <i class="icon login-icon" onclick="goToLogin()"><i class="fa-duotone fa-solid fa-user"></i></i>
+            <i class="icon cart-icon" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i></i>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+        <input type="text" placeholder="Search products...">
+        <button onclick="searchProduct()">Search</button>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <h2>Your Cart</h2>
+        <p>No items in cart.</p>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+    <section class="product-detail">
+        <!-- Image Slider -->
+        <div class="image-slider">
+            <img id="main-image" src="image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxL2FlMmIxNzgwNGQ0ZjJiMjU1YWNiYTEzZmIyODJjNDBmLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png" alt="Product Image">
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxL2FlMmIxNzgwNGQ0ZjJiMjU1YWNiYTEzZmIyODJjNDBmLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png" alt="Thumbnail 1" onclick="changeImage('image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxL2FlMmIxNzgwNGQ0ZjJiMjU1YWNiYTEzZmIyODJjNDBmLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png')">
+                <img class="thumbnail" src="image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzMwMjYxZmMwMTBmMWZjOTQ5ZWE5YjBlMDE1N2IzMDkyLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png" alt="Thumbnail 2" onclick="changeImage('image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzMwMjYxZmMwMTBmMWZjOTQ5ZWE5YjBlMDE1N2IzMDkyLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png')">
+                <img class="thumbnail" src="image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzkyNTA3NGIwN2NhOGE1ZjEwMWE2ZDM5ZTAyOTA4ODc0LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png" alt="Thumbnail 3" onclick="changeImage('image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzkyNTA3NGIwN2NhOGE1ZjEwMWE2ZDM5ZTAyOTA4ODc0LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png')">
+                <img class="thumbnail" src="image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzEyNmMyNzZmNjRhNDA0ZTQyZGE0ODJhN2EwMGRiMjM1LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png" alt="Thumbnail 4" onclick="changeImage('image/eyJidWNrZXQiOiJraWNrYXZlbnVlLWFzc2V0cyIsImtleSI6InByb2R1Y3RzLzMzNjAxLzEyNmMyNzZmNjRhNDA0ZTQyZGE0ODJhN2EwMGRiMjM1LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQwMH19fQ==.png')">
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            <div class="hot-product"><i class="fa-solid fa-tag fa-lg" style="color: #FFD43B;"></i></i>  25% 0FF</div>
+            <h1 class="product-title">Converse Chuck Taylor All-Star 70's High Stussy Black</h1>
+            <p class="product-price">IDR 1,696,000</p> <p class="product-diskon"><s>IDR 2,120,000</s></p>
+
+            <!-- Size Selection -->
+            <div class="size-selection">
+                <p>Select Size:</p>
+                <div class="size-buttons">
+                    <button class="size-btn" onclick="selectSize(this)">EU 36</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 37</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 38</button>
+                    <button class="size-btn out-of-stock" disabled>EU 39</button>
+                    <button class="size-btn out-of-stock" disabled>EU 40</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 41</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 42</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 43</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 44</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 45</button>
+                    <button class="size-btn" onclick="selectSize(this)">EU 46</button>
+                </div>
+                <section class="size-guide-section">
+                    <a href="#" class="size-guide-link" onclick="showSizeGuide(event)">Size Guide</a>
+                
+                    <!-- Modal for Size Guide -->
+                    <div id="size-guide-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-btn" onclick="closeSizeGuide()">×</span>
+                            <img src="image/M_NIKE_shoes_20190305.jpg" alt="Size Guide" class="size-guide-image">
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- Quantity and Add to Cart -->
+            <div class="quantity-add">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section within Product Detail -->
+    <section class="faq-section">
+        <h2>Product FAQs</h2>
+        <div class="faq">
+            <h3>Are these sneakers true to size?</h3>
+            <p>Yes, these sneakers are true to size. However, if you have wider feet, we recommend ordering half a size up.</p>
+        </div>
+        <div class="faq">
+            <h3>What is the return policy?</h3>
+            <p>We thoroughly check every purchase you make and applies our company's guarantee to the product's legitimacy. The guarantee is valid for 2 days after receiving the product from the delivery service. Should you have any concern about the product you purchase, kindly reach out to our Customer Service and Specialist on Monday - Saturday 10.00 - 21.00 (GMT+7 / WIB).</p>
+        </div>
+        <div class="faq">
+            <h3>How long is the shipping?</h3>
+            <p>Shipping usually takes 2-3 days.</p>
+        </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="featured">
+        <h2>You May Also Like</h2>
+        <div class="box-container">
+            <!-- Produk 1 -->
+            <div class="box">
+                <div class="image">
+                    <img src="image/Nike Air Max Dn Pure Platinum Hyper Royal.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Nike Air Max Dn Pure Platinum Hyper Royal</h3>
+                    <div class="price">IDR 1,810,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(89)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Adidas Handball Spezial Shadow Brown Aluminium.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Adidas Handball Spezial Shadow Brown</h3>
+                    <div class="price">IDR 2,270,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(377)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <div class="api-badge">🔥</div>
+                    <img src="image/Air Jordan Tatum 1 Old School PF Wolf Grey.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Air Jordan Tatum 1 Old School PF Wolf Grey</h3>
+                    <div class="price">IDR 920,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(165)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Adidas Campus 80s South Park Towelie.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Adidas Campus 80s South Park Towelie</h3>
+                    <div class="price">IDR 2,200,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(74)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Nike Kobe 5 Protro X-Ray.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Nike Kobe 5 Protro X-Ray</h3>
+                    <div class="price">IDR 2,120,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(74)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+    </section>
+
+</body>
+</html>
+
+<style>
+    /* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.kategori-brand {
+    text-align: left;
+    color: rgb(38, 41, 41);
+    padding-left: 2px;
+    padding-top: 6px;
+    
+}
+
+/* Product Detail Section */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+   
+}
+
+.image-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-image {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+}
+
+.thumbnail {
+    width: 80px; 
+    height: 80px;
+    border: 1px solid #ddd; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 10px; 
+    box-sizing: border-box; 
+    background-color: #f9f9f9; 
+}
+
+.thumbnail img {
+    width: 30%; 
+    height: auto;
+    object-fit: contain; 
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+   
+}
+
+.product-title {
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+.hot-product {
+    background: #3a9f70;
+    color: #f9f9f9;
+    top: 0.5rem;
+    left: 0.5rem;
+    margin-right: 450px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 1.2rem;
+    padding: 0.6rem 0.5rem;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.product-price-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between price and discount */
+}
+
+/* Styling for product price */
+.product-price {
+    font-size: 19px;
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Remove default browser margin */
+}
+
+/* Styling for product discount */
+.product-diskon {
+    font-size: 16px;
+    color: #999;
+    margin: 0; /* Remove default browser margin */
+}
+
+
+/* Size Buttons Styling */
+.size-selection {
+    margin: 20px 0;
+}
+
+.size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.size-btn {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.size-btn:hover {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+.size-btn.active {
+    background-color: #0091ff;
+    color: white;
+    border-color: #0091ff;
+}
+
+.size-btn.out-of-stock {
+    background-color: #eee;
+    color: #aaa;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.size-guide-link {
+    display: block;
+    margin-top: 10px;
+    color: #0091ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Size Guide Image */
+.size-guide-image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Ensures the image does not exceed viewport height */
+}
+
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #0091ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+
+.faq h3 {
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.faq p {
+    margin: 10px 0;
+    display: none;
+    padding-left: 20px;
+}
+
+/* Related Products Section */
+.featured {
+  padding: 20px;
+  padding-top: 15px;
+  text-align: center;
+  padding-left: 20px;
+  border: 1px solid #ddd;
+  margin: 20px;
+  
+}
+
+.featured .box-container {
+  display: flex; /* Atur elemen dalam baris horizontal */
+  flex-wrap: wrap; /* Bungkus jika tidak cukup ruang */
+  gap: 1rem; /* Jarak antar elemen */
+  padding: 20px;
+  justify-content: space-between; /* Ratakan elemen secara horizontal */
+}
+
+.featured .box-container .box {
+  flex: 0 0 calc(20% - 1rem); /* Setel lebar agar 5 produk muat dalam satu baris */
+  background: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Border lebih kecil */
+  border-radius: 0.2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 0; /* Hapus margin tambahan */
+  min-height: 20rem; /* Tinggi minimum agar produk seragam */
+}
+
+.featured .box-container .box .discount-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: #3a9f70;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.featured .box-container .box .exclusive-badge {
+  background: #ff00f7;
+  top: 0.5rem;
+  left: 0.5rem;
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  color: white;
+}
+
+.featured .box-container .box .image {
+  height: 15rem; /* Kurangi tinggi gambar */
+  width: 100%; 
+  overflow: hidden;
+  padding: 20px;
+}
+
+.featured .box-container .box .image img {
+  height: 90%; 
+  width: 95%;
+  object-fit: cover;
+  display: block;
+}
+
+.featured .box-container .box:hover .image img {
+  transform: scale(1.05); 
+}
+
+.featured .box-container .box .content {
+  padding: 0.5rem 0.8rem; /* Kurangi padding konten */
+}
+
+.featured .box-container .box .content h3 {
+  font-size: 0.9rem; /* Ukuran font lebih kecil */
+  margin-bottom: 0.5rem;
+}
+
+.featured .box-container .box .content .price {
+  font-size: 1rem; /* Ukuran harga lebih kecil */
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.featured .box-container .box .content .btn {
+  font-size: 0.9rem; /* Ukuran tombol lebih kecil */
+  padding: 0.5rem 0.8rem; /* Kurangi padding tombol */
+  border-radius: 0.3rem;
+  background: #000000;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.featured .box-container .box .content .stars {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.featured .box-container .box .content .stars i {
+  color: gold;
+}
+
+.featured .box-container .box .content .stars span {
+  font-size: 0.9rem;
+}
+
+.featured .box-container .box .favorite-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: red;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.featured .box-container .box .fas:hover {
+  color: rgb(244, 10, 10);
+}
+
+</style>
+
+<script>
+    // Image Slider
+function changeImage(imageSrc) {
+    document.getElementById('main-image').src = imageSrc;
+}
+
+// FAQ Toggle
+document.querySelectorAll('.faq h3').forEach(item => {
+    item.addEventListener('click', () => {
+        const nextSibling = item.nextElementSibling;
+        if (nextSibling.style.display === 'none' || !nextSibling.style.display) {
+            nextSibling.style.display = 'block';
+        } else {
+            nextSibling.style.display = 'none';
+        }
+    });
+});
+
+function selectSize(button) {
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.size-btn');
+    allButtons.forEach(btn => btn.classList.remove('active'));
+
+    // Add active class to the clicked button
+    button.classList.add('active');
+}
+
+function showSizeGuide(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById('size-guide-modal').style.display = 'flex'; // Show modal
+}
+
+function closeSizeGuide() {
+    document.getElementById('size-guide-modal').style.display = 'none'; // Hide modal
+}
+
+
+</script>

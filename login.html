@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATKICKS LOGIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('Archive_Top_5_Sneakers_Banner_1500x500.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+     .navbar {
+    margin-top: -519px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 17px;
+    background-color: #fdfbfb;
+    color: #0b0a0a;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    margin-left: 17px;
+}
+
+.navbar-right {
+    margin-right: 20px;
+}
+
+.logo {
+    margin-top: 8px;
+    width: 177px;
+    margin-right: 6px;
+}
+
+.navbar-center {
+    margin-right: 35px;
+}
+.navbar-center a {
+    margin: 0 10px;
+    color: #090909;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.navbar-center a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: 5s ease-in-out;
+}
+
+.navbar-right .icon {
+    font-size: 1.3em;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+/* Search Bar */
+.search-bar {
+    display: none;
+    text-align: center;
+    padding: 2px;
+    background-color: #000000;
+    position: fixed;
+    top: 60px; 
+    width: 100%;
+    z-index: 2000;
+}
+
+.search-bar input {
+    width: 100%; 
+    height: 100%;
+    padding: 4px;
+    font-size: 1em;
+    transition: width 0.4s ease;
+    display: flex;
+   
+}
+
+.search-bar .search-input:focus {
+    width: 300px;
+}
+
+/* Cart Popup */
+.cart-popup {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    width: 200px;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#reset-password-form {
+    display: none; 
+    width: 320px;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+}
+
+#reset-password-form h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#reset-password-form input[type="text"],
+#reset-password-form input[type="password"] {
+    width: 92%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+#reset-password-form input[type="text"]:focus,
+#reset-password-form input[type="password"]:focus {
+    border: 2px solid #00bcd4;
+    outline: none;
+}
+
+#reset-password-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#reset-password-form button:hover {
+    background-color: #008c99;
+}
+
+#reset-password-form .toggle-form {
+    margin-top: 15px;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#reset-password-form .toggle-form:hover {
+    color: #fff;
+}
+
+#reset-password-form .toggle-form span {
+    color: #008c99;
+}
+
+#reset-password-form .toggle-form span:hover {
+    text-decoration: underline;
+    color: #08e2ff;
+}
+
+     .form-container {
+          margin-top: 30px;
+            width: 320px;
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 92%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-container input[type="text"]:focus,
+        .form-container input[type="email"]:focus,
+        .form-container input[type="password"]:focus {
+            border: 2px solid #00bcd4;
+            outline: none;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00bcd4;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #008c99;
+        }
+
+        .form-container .toggle-form {
+            margin-top: 15px;
+            color: #ddd;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form-container .toggle-form:hover {
+            color: #fff;
+        }
+
+        .toggle-form span {
+            color: #008c99;
+        }
+
+
+        .toggle-form span:hover {
+            text-decoration: underline;
+            color: #08e2ff;
+        }
+
+        .form-container .error {
+            color: #ff6b6b;
+            font-size: 12px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="image/Group_3-removebg-preview.png"  class="logo">
+               </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <a href="men.html">Men</a>
+            <a href="#women">Women</a>
+            <a href="#kids">Kids</a>
+        </div>
+        <div class="navbar-right">
+            <i class="icon search-icon" onclick="toggleSearch()"></i>
+            <i class="icon login-icon" onclick="goToLogin()"></i>
+            <i class="icon cart-icon" onclick="toggleCart()"></i>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+        <input type="text" placeholder="Search products...">
+        <button onclick="searchProduct()">Search</button>
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cartPopup">
+        <h2>Your Cart</h2>
+        <p>No items in cart.</p>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+    <div class="form-container">
+        <!-- Form Login -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <div class="toggle-form" onclick="toggleForm()">Belum punya akun? <span>Daftar</span></div>
+            <div id="login-error" class="error" style="display: none;">Username atau Password salah</div>
+        </div>
+
+        <!-- Form Register -->
+        <div id="register-form" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username" required>
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button onclick="register()">Register</button>
+            <div class="toggle-form" onclick="toggleForm()">Sudah punya akun? <span>Login</span></div>
+            <div id="register-error" class="error" style="display: none;">Akun sudah terdaftar. Silakan login.</div>
+        </div>
+
+        <!-- Form Reset Password -->
+<div id="reset-password-form">
+<h2>Reset Password</h2>
+    <input type="text" id="reset-username" placeholder="Username" required>
+    <input type="password" id="reset-password" placeholder="Password Baru" required>
+    <button onclick="resetPassword()">Reset Password</button>
+    <div class="toggle-form" onclick="toggleForm()">Kembali ke <span>Login</span></div>
+</div>
+
+    </div>
+
+    <script>
+        let loginAttempts = 0; 
+        const maxAttempts = 3; 
+    
+        function toggleForm() {
+            const loginForm = document.getElementById("login-form");
+            const registerForm = document.getElementById("register-form");
+            const resetPasswordForm = document.getElementById("reset-password-form");
+            const loginError = document.getElementById("login-error");
+    
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                resetPasswordForm.style.display = "none";
+                loginError.style.display = "none";
+            } else {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+            }
+        }
+    
+        function register() {
+            const username = document.getElementById("register-username").value;
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+    
+            const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+            
+            for (let i = 0; i < storedUsers.length; i++) {
+                if (storedUsers[i].username === username) {
+                    document.getElementById("register-error").style.display = "block";
+                    return; 
+                }
+            }
+    
+            if (username && email && password) {
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!emailPattern.test(email)) {
+                    alert("Email tidak valid.");
+                    return;
+                }
+    
+                storedUsers.push({ username, email, password });
+                localStorage.setItem("users", JSON.stringify(storedUsers));
+                alert("Registrasi berhasil! Silakan login.");
+                toggleForm();
+            } else {
+                alert("Mohon isi semua kolom.");
+            }
+        }
+    
+        function login() {
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    let isAuthenticated = false;
+
+    for (let i = 0; i < storedUsers.length; i++) {
+        if (storedUsers[i].username === username && storedUsers[i].password === password) {
+            isAuthenticated = true;
+            break;
+        }
+    }
+
+    if (isAuthenticated) {
+        localStorage.setItem("loggedIn", true); 
+        alert("Login berhasil!");
+        window.location.href = "index.html";  
+    } else {
+        loginAttempts++;
+        document.getElementById("login-error").style.display = "block";
+        if (loginAttempts >= maxAttempts) {
+            alert("Anda telah mencapai batas maksimal percobaan login. Silakan reset kata sandi Anda.");
+            showResetPasswordForm();
+        }
+    }
+}
+    
+        function showResetPasswordForm() {
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("reset-password-form").style.display = "block";
+        }
+    
+        function resetPassword() {
+            const username = document.getElementById("reset-username").value;
+            const newPassword = document.getElementById("reset-password").value;
+    
+            const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+            let userFound = false;
+    
+            for (let i = 0; i < storedUsers.length; i++) {
+                if (storedUsers[i].username === username) {
+                    storedUsers[i].password = newPassword;
+                    userFound = true;
+                    break;
+                }
+            }
+    
+            if (userFound) {
+                localStorage.setItem("users", JSON.stringify(storedUsers));
+                alert("Password berhasil direset! Silakan login dengan kata sandi baru.");
+                toggleForm();
+            } else {
+                alert("Username tidak ditemukan.");
+            }
+        }
+
+
+    </script>
+    
+    
+</body>
+</html>

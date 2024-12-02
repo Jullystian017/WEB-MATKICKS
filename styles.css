@@ -1,0 +1,704 @@
+/* Font and Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0; /* Menempatkan navbar di atas halaman */
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Menyebar elemen di kiri dan kanan */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+  padding: 6px 20px; /* Padding kecil untuk navbar */
+  background-color: #fdfbfb;
+  color: #0b0a0a;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 65px; /* Menyusun tinggi navbar menjadi lebih kecil */
+}
+
+.logo {
+  margin-top: 8px;
+  width: 177px;
+  margin-right: 6px;
+}
+
+/* Navbar Left */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-center {
+  display: flex;
+  justify-content: center; 
+}
+
+.navbar-center a {
+  margin: 0 10px; 
+  color: #090909;
+  text-decoration: none;
+}
+
+.navbar-center a:hover {
+  color: #000000;
+  text-decoration: underline;
+  
+}
+
+/* Navbar Right */
+.navbar-right {
+  display: flex; 
+  align-items: center;
+  justify-content: flex-end; 
+}
+
+/* Ikon */
+.navbar-right .icon {
+  font-size: 1.5em;
+  margin: 0 7px; 
+  cursor: pointer;
+}
+
+.user-profile-icon {
+  font-size: 0.5rem;
+}
+
+.dashboard-popup {
+  display: none;
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    width: 200px;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.dashboard-popup button {
+  padding: 5px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dashboard-popup button:hover {
+  background-color: #c62828;
+}
+
+/* Search Bar */
+.search-bar {
+    display: none;
+    text-align: center;
+    padding: 2px;
+    background-color: #000000;
+    position: fixed;
+    top: 60px; 
+    width: 100%;
+    z-index: 2000;
+}
+
+.search-bar input {
+    width: 100%; 
+    height: 100%;
+    padding: 4px;
+    font-size: 1em;
+    transition: width 0.4s ease;
+    display: flex;
+   
+}
+
+.search-bar .search-input:focus {
+    width: 300px;
+}
+
+/* Cart Popup */
+.cart-popup {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    width: 200px;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Image Slider */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 555px;
+    margin-top: 20px;
+}
+
+/* Tombol "Shop Now" */
+.shop-now {
+    position: absolute;
+    bottom: 15%; 
+    left: 80%;
+    transform: translateX(-50%);
+    background-color: #000; 
+    color: #fff; 
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shop-now:hover {
+    background-color: #444; 
+}
+
+/* Slider Controls */
+.slider-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 700;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+span {
+    color: #0091ff;
+}
+
+.products {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+}
+
+.products .box-container-wrapper {
+    position: relative;
+    overflow: hidden; 
+}
+
+.products .box-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth; 
+}
+
+.products .box-container::-webkit-scrollbar {
+    display: none; 
+}
+
+/* Tombol scroll */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: #000000;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 700;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.scroll-btn.prev {
+    left: 10px;
+}
+
+.scroll-btn.next {
+    right: 10px;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .scroll-btn {
+        font-size: 1.5rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+  
+  .products .box-container .box {
+    flex: 0 0 auto;
+    width: 16rem;
+    position: relative;
+    background: #f9f9f9;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .products .box-container .box .discount-badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: #3a9f70;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .products .box-container .box .exclusive-badge {
+    background: #ff00f7;
+    top: 0.5rem;
+    left: 0.5rem;
+    position: absolute;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    color: white;
+  }
+
+  .products .box-container .box .image {
+    height: 16rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .products .box-container .box .image img {
+    height: 95%;
+    width: 95%;
+    object-fit: cover;
+  }
+  
+  .products .box-container .box:hover .image img {
+    transform: scale(1.05);
+  }
+  
+  .products .box-container .box .content {
+    padding: 0.8rem 1rem;
+  }
+  
+  .products .box-container .box .content h3 {
+    font-size: 1.1rem;
+    color: #10221b;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  
+  .products .box-container .box .content .price {
+    font-size: 1.2rem;
+    color: #666;
+    padding: 0.1rem 0;
+  }
+
+  .products .box-container .box .content .price-diskon {
+    font-size: 1.0rem;
+    color: #f00f0f;
+    padding: 0.1rem 0;
+  }
+  
+  .products .box-container .box .content .stars {
+    font-size: 1.2rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+  }
+  
+  .products .box-container .box .content .stars i {
+    color: gold;
+  }
+  
+  .products .box-container .box .content .stars span {
+    font-size: 0.9rem;
+  }
+  
+  .products .box-container .box .content .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem 0 0.5rem 0;
+    background: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .products .box-container .box .favorite-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: red;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .products .box-container .box .fas:hover {
+    color: rgb(244, 10, 10); 
+  }
+
+  .fa-solid:hover {
+    color: rgb(0, 179, 255);
+  }
+  
+  /* Badge API dengan Emoji */
+  .api-badge {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    font-size: 1.9rem; 
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+  }
+
+  .sproduct {
+    text-decoration: none;
+  }
+  
+
+   
+  
+  /*banner 2*/
+  .banner-container {
+    padding: 50px;
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 1rem; 
+    padding-top: 2rem; 
+    padding-bottom: 2rem;
+    overflow-x: auto; 
+  }
+  
+  .banner-container .banner {
+    flex:  1 1 42rem; 
+    overflow: hidden;
+    height: 15rem; 
+    position: relative;
+    border-radius: 0.5rem; 
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .banner-container .banner img {
+    height: 95%;
+    width: 95%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .banner-container .banner:hover img {
+    transform: scale(1.05);
+  }
+  
+  .banner-container .banner .content {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem; 
+    transform: translateY(-50%);
+  }
+  
+  .banner-container .banner .content span {
+    font-size: 1.4rem; 
+    font-family: Verdana;
+    color: #000000;
+  }
+  
+  .banner-container .banner .content h3 {
+    font-size: 2rem; 
+    color: #0091ff;
+    padding-top: 0.3rem;
+  }
+  
+  .banner-container .banner .content .btn span {
+    color: #fff;
+  }
+
+  .banner-container .banner .content .btn {
+    display: inline-block;
+    background-color: #000; 
+    color: #fff; 
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.banner-container .banner .content .btn:hover {
+    background-color: #0091ff; 
+}
+
+.heading-content {
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.brand-container {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.brand-logo img {
+    width: 155px; 
+    height: 135px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Featured Section */
+.featured {
+  padding: 10px;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.featured .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 110px;
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+.featured .box-container .box {
+  flex: 0 0 auto;
+  width: 15rem;
+  position: relative;
+  background: #f9f9f9;
+  overflow: hidden;
+  border-radius: 0.2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.featured .box-container .box .discount-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: #3a9f70;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.featured .box-container .box .exclusive-badge {
+  background: #ff00f7;
+  top: 0.5rem;
+  left: 0.5rem;
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  color: white;
+}
+
+.featured .box-container .box .image {
+  height: 14rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.featured .box-container .box .image img {
+  height: 95%;
+  width: 95%;
+  object-fit: cover;
+}
+
+.featured .box-container .box:hover .image img {
+  transform: scale(1.05);
+}
+
+.featured .box-container .box .content {
+  padding: 0.8rem 1rem;
+}
+
+.featured .box-container .box .content h3 {
+  font-size: 1.0rem;
+  color: #10221b;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.featured .box-container .box .content .price {
+  font-size: 1.3rem;
+  color: #666;
+  padding: 0.3rem 0;
+}
+
+.featured .box-container .box .content .stars {
+  font-size: 1.2rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.featured .box-container .box .content .stars i {
+  color: gold;
+}
+
+.featured .box-container .box .content .stars span {
+  font-size: 0.9rem;
+}
+
+.featured .box-container .box .content .btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem 0 0.5rem 0;
+  background: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.featured .box-container .box .favorite-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: red;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.featured .box-container .box .fas:hover {
+  color: rgb(244, 10, 10);
+}
+
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 35px 18px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Logo dan nama toko */
+.footer-logo {
+  flex: 1;
+}
+.footer-logo img {
+  width: 100px;
+  margin-left: 10px;
+}
+.footer-logo h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+/* Customer Care, Informasi Toko, dan Payment */
+.footer-section {
+  flex: 1;
+  margin: 20px;
+}
+.footer-section h3 {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-section ul li a:hover {
+  color: #ccc;
+}
+/* Media Sosial */
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.footer-social a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  color: #f9f9f9;
+}
+
+.footer-social a img {
+  width: 100%;
+  height: 100%;
+}

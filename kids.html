@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATKICKS KIDS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Navbar -->
+     <header class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+             <img src="image/Group_3-removebg-preview.png"  class="logo">
+            </a>
+           
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <a href="men.html">Men</a>
+            <a href="women.html">Women</a>
+            <a href="kids.html">Kids</a>
+        </div>
+        <div class="navbar-right">
+            <i class="icon search-icon" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></i>
+            <i class="icon login-icon" onclick="goToLogin()"><i class="fa-solid fa-user"></i></i>
+            <i class="icon user-profile-icon" onclick="showDashboard()" style="display: none;"><i class="fa-solid fa-circle-user"></i></i> <!-- Profile icon -->
+            <i class="icon cart-icon" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i></i>
+        </div>
+    </header>
+
+    <div class="dashboard-popup" style="display: none;">
+        <h2>Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+       const isLoggedIn = localStorage.getItem("loggedIn");
+   
+       const loginIcon = document.querySelector(".login-icon");
+       const userProfileIcon = document.querySelector(".user-profile-icon");
+       const cartIcon = document.querySelector(".cart-icon");
+       const navbar = document.querySelector(".navbar");
+   
+       if (isLoggedIn) {
+           loginIcon.style.display = "none";
+           userProfileIcon.style.display = "block"; 
+       } else {           
+           loginIcon.style.display = "block";
+           userProfileIcon.style.display = "none"; 
+       }
+   }
+   
+   function logout() {
+       localStorage.removeItem("loggedIn"); 
+       window.location.href = "login.html"; 
+   }
+   
+function showDashboard() {
+   const dashboardPopup = document.querySelector(".dashboard-popup");
+   
+   if (dashboardPopup.style.display === "block") {
+     
+       dashboardPopup.style.display = "none";
+   } else {
+       
+       dashboardPopup.style.display = "block";
+   }
+}
+   function logout() {
+   localStorage.removeItem("loggedIn"); 
+   window.location.href = "login.html"; 
+}
+   </script>
+
+    <section class="banner">
+            <div class="banner-image">
+                <img src="image/category_65a4fed7de80d 1.png" alt="Product 1">
+            </div>
+
+    <style>
+        .banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .banner-image img {
+            width: 100%;
+            height: 380px;
+            margin-top: 20px;
+        }
+    
+    </style>
+    
+    <section class="featured" id="featured">
+        <h1 class="heading-content"><span>Kids</span>Products</h1>
+        <div class="box-container">
+            <!-- Produk 1 -->
+            <div class="box">
+                <div class="image">
+                    <img src="image/Nike Air Max Dn Pure Platinum Hyper Royal.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Nike Air Max Dn Pure Platinum Hyper Royal</h3>
+                    <div class="price">IDR 1,810,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(89)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Adidas Handball Spezial Shadow Brown Aluminium.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Adidas Handball Spezial Shadow Brown Aluminium</h3>
+                    <div class="price">IDR 2,270,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(377)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <div class="api-badge">🔥</div>
+                    <img src="image/PUMA LAMELO MB 04.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Puma Lamelo MB 04 La France</h3>
+                    <div class="price">IDR 2,180,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(165)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Nike Kobe 5 Protro X-Ray.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Nike Kobe 5 Protro X-Ray</h3>
+                    <div class="price">IDR 2,120,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(74)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/Puma Suede XL Black White.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Puma Suede XL Black White</h3>
+                    <div class="price">IDR 1,300,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(261)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <div class="api-badge">🔥</div>
+                    <img src="image/Adidas Campus 80s South Park Towelie.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Adidas Campus 80s South Park Towelie</h3>
+                    <div class="price">IDR 2,200,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(124)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <div class="exclusive-badge">EXCLUSIVE</div>
+                    <img src="image/Nike LeBron X Elite+ White Gold.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Nike LeBron X Elite+ White Gold</h3>
+                    <div class="price">IDR 11,990,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(47)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <div class="api-badge">🔥</div>
+                    <img src="image/Air Jordan Tatum 1 Old School PF Wolf Grey.png" alt="Product Image 1">
+                </div>
+                <div class="content">
+                    <h3>Air Jordan Tatum 1 Old School PF Wolf Grey</h3>
+                    <div class="price">IDR 920,000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(200)</span>
+                    </div>
+                    <button class="btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer" id="footer">
+            <footer>
+                <div class="footer-container">
+                  <div class="footer-logo">
+                    <a href="index.html"><img src="image/logo matkicks.jpg" alt="Logo Toko Sepatu"></a>
+                    <h2>MATKICKS</h2>
+                    <h4>Authentic. Guaranteed.</h4>
+                  </div>
+                  
+                  <!-- Customer Care -->
+                  <div class="footer-section">
+                    <h3>Customer Care</h3>
+                    <ul>
+                      <li><a href="terms.html">About Us</a></li>
+                      <li><a href="terms.html">Privacy</a></li>
+                      <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                  </div>
+              
+              
+                  <!-- Payment Methods -->
+                  <div class="footer-section">
+                    <h3>Payment</h3>
+                    <ul>
+                        <li><a>E-Wallet</a></li>
+                      <li><a>Mastercard</a></li>
+                      <li><a>Bank Transfer</a></li>
+                    </ul>
+                  </div>
+              
+                  <!-- Media Sosial -->
+                  <div class="footer-section">
+                    <h3>Explore Us</h3>
+                    <div class="footer-social">
+                      <a href="https://instagram.com/matkicks_"><img src="image/image.png" alt="Instagram"></a>
+                      <a href="https://instagram.com/matkicks_" class="ig-nama">Matkicks</a>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+    </section>
+</body>
+</html>
